@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pruebas </title>
+</head>
+<body>
+    <button type="button" name="button" id="agregaInfo">Saludo</button>
+    <h1>Hola: <span id="resp"></span></h1>
+</body>
+<script>
+
+    document.getElementById("agregaInfo").addEventListener('click', () => {
+        var nombre = "Erwin"
+        document.getElementById("resp").innerHTML = nombre
+        webkit.messageHandlers.callbackHandler.postMessage("se invoco el cambio de texto " + nombre)
+    })
+
+</script>
+</html>
