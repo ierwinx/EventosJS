@@ -8,11 +8,8 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let contentController = WKUserContentController();
-        contentController.add(
-            self,
-            name: "callbackHandler"
-        )
+        let contentController = WKUserContentController()
+        contentController.add(self, name: "callbackHandler")
 
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
@@ -25,7 +22,7 @@ class ViewController: UIViewController, WKScriptMessageHandler, WKNavigationDele
     }
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if(message.name == "callbackHandler") {
+        if message.name == "callbackHandler" {
             guard let mensaje =  message.body as? String else {
                 return
             }
